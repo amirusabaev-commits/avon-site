@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avon — красота начинается с тебя</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Arial,sans-serif;color:#422b36;background:linear-gradient(135deg,#fff7fa,#f4d2df);display:flex;align-items:center;justify-content:center;padding:22px}
+.site{width:min(960px,100%);min-height:610px;background:#ffffffb8;border:1px solid #fff;border-radius:28px;box-shadow:0 22px 70px #71334b20;overflow:hidden;position:relative}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 30px;border-bottom:1px solid #eacbd8}
+.logo{font-family:Georgia,serif;font-size:30px;color:#b52f68;letter-spacing:-2px}
+nav{display:flex;gap:9px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:11px 17px;background:#f6e3eb;color:#8e3c60;transition:.2s}
+button:hover{transform:translateY(-2px);background:#efd0dd}
+button.active,.primary{background:#b52f68;color:white}
+main{min-height:500px;padding:50px 28px;display:grid;place-items:center;text-align:center}
+.slide{display:none;max-width:700px;animation:appear .35s ease}
+.slide.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.kicker{text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:#986579}
+h1{font:500 clamp(70px,15vw,138px)/.95 Georgia,serif;letter-spacing:-.07em;color:#b52f68;margin:20px 0}
+h2{font:500 clamp(38px,7vw,64px) Georgia,serif;color:#a73566;margin:14px 0 18px}
+p{font-size:18px;line-height:1.65;color:#765765}
+.rule{height:2px;width:75px;background:#c96a91;margin:24px auto}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+footer{text-align:center;padding:0 20px 22px;color:#a27b8d;font-size:12px}
+ .application-form{width:min(480px,100%);margin:22px auto 0;text-align:left}
+.application-form label{display:block;margin:14px 0;color:#765765;font-size:14px}
+.application-form input{display:block;width:100%;margin-top:7px;padding:13px 14px;border:1px solid #e6bfd0;border-radius:12px;background:#fff;color:#422b36;font:inherit;outline:none}
+.application-form input:focus{border-color:#b52f68;box-shadow:0 0 0 3px #b52f6818}
+.application-form .privacy-note{font-size:12px;line-height:1.5;color:#966f80}
+#form-message{font-size:14px;color:#8e3c60;text-align:center}
+@media(max-width:620px){header{align-items:flex-start;flex-direction:column;padding:20px}.site{min-height:580px}main{min-height:450px;padding:38px 18px}nav{width:100%}nav button{flex:1;padding:10px 8px}}
+</style>
+</head>
+<body>
+<div class="site">
+<header>
+  <div class="logo">Avon</div>
+  <nav aria-label="Навигация по сайту">
+    <button class="nav-btn active" data-slide="0">Главная</button>
+    <button class="nav-btn" data-slide="1">Заявка</button>
+    <button class="nav-btn" data-slide="2">О Avon</button>
+    <button class="nav-btn" data-slide="3">Красота</button>
+    <button class="nav-btn" data-slide="4">Контакты</button>
+  </nav>
+</header>
+<main>
+  <section class="slide active">
+    <div class="kicker">Красота в каждом мгновении</div>
+    <h1>Avon</h1>
+    <div class="rule"></div>
+    <p>Красота начинается с тебя</p>
+    <div class="actions"><button class="primary" id="apply">Подать заявку</button></div>
+  </section>
+  <section class="slide">
+    <div class="kicker">Оставить заявку</div>
+    <h2>Заявка Avon</h2>
+    <p>Заполни форму. Это демонстрационная версия: данные никуда не отправляются.</p>
+    <form id="application-form" class="application-form">
+      <label>ФИО<input name="full_name" type="text" placeholder="Введите фамилию, имя и отчество" required></label>
+      <label>Номер телефона<input name="phone" type="tel" placeholder="+7 ___ ___ __ __" required></label>
+      <label>Город или район<input name="city" type="text" placeholder="Укажите город или район" required></label>
+      <p class="privacy-note">Для безопасности не указывайте домашний адрес на открытом сайте. Если понадобится адрес доставки, передавайте его только через надёжный приватный канал.</p>
+      <div class="actions"><button type="button" class="prev">Назад</button><button type="submit" class="primary">Отправить заявку</button></div>
+      <p id="form-message" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+  <section class="slide">
+    <div class="kicker">Немного о бренде</div>
+    <h2>О Avon</h2>
+    <p>Место, где можно открывать для себя идеи ухода, красоты и стиля. Листай страницу с помощью кнопок сверху.</p>
+    <div class="actions"><button class="prev">Назад</button><button class="primary next">Дальше</button></div>
+  </section>
+  <section class="slide">
+    <div class="kicker">Твоя страница вдохновения</div>
+    <h2>Мир красоты</h2>
+    <p>Здесь можно разместить любимые продукты, фотографии, акции или описание каталога Avon.</p>
+    <div class="actions"><button class="prev">Назад</button><button class="primary next">Дальше</button></div>
+  </section>
+  <section class="slide">
+    <div class="kicker">Будем на связи</div>
+    <h2>Контакты</h2>
+    <p>Добавь сюда свои контактные данные или ссылку на страницу, где посетители смогут с тобой связаться.</p>
+    <div class="actions"><button class="prev">Назад</button><button class="primary" id="home">На главную</button></div>
+  </section>
+</main>
+<footer>Демонстрационная страница Avon</footer>
+</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const nav=[...document.querySelectorAll('.nav-btn')];
+let current=0;
+function showSlide(index){
+  current=(index+slides.length)%slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+  nav.forEach((b,i)=>b.classList.toggle('active',i===current));
+}
+nav.forEach((b,i)=>b.addEventListener('click',()=>showSlide(i)));
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>showSlide(current+1)));
+document.querySelectorAll('.prev').forEach(b=>b.addEventListener('click',()=>showSlide(current-1)));
+document.getElementById('home').addEventListener('click',()=>showSlide(0));
+document.getElementById('apply').addEventListener('click',()=>showSlide(1));
+document.getElementById('application-form').addEventListener('submit',event=>{
+  event.preventDefault();
+  document.getElementById('form-message').textContent='Спасибо! Это демонстрационная форма — заявка никуда не отправлена.';
+});
+</script>
+</body>
+</html>
