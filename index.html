@@ -102,9 +102,7 @@ document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>sho
 document.querySelectorAll('.prev').forEach(b=>b.addEventListener('click',()=>showSlide(current-1)));
 document.getElementById('home').addEventListener('click',()=>showSlide(0));
 document.getElementById('apply').addEventListener('click',()=>showSlide(1));
-document.getElementById('application-form').addEventListener('submit',event=>{
-  event.preventDefault();
- document.getElementById('application-form').addEventListener('submit', event => {
+document.getElementById('application-form').addEventListener('submit', event => {
   event.preventDefault();
 
   const form = event.target;
@@ -126,7 +124,6 @@ document.getElementById('application-form').addEventListener('submit',event=>{
     'Открываем WhatsApp. Нажмите «Отправить» в чате.';
 
   window.open(url, '_blank');
-});
 });
 </script>
 </body>
