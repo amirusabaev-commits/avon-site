@@ -104,7 +104,29 @@ document.getElementById('home').addEventListener('click',()=>showSlide(0));
 document.getElementById('apply').addEventListener('click',()=>showSlide(1));
 document.getElementById('application-form').addEventListener('submit',event=>{
   event.preventDefault();
-  document.getElementById('form-message').textContent='Спасибо! Это демонстрационная форма — заявка никуда не отправлена.';
+ document.getElementById('application-form').addEventListener('submit', event => {
+  event.preventDefault();
+
+  const form = event.target;
+
+  const fio = form.elements.full_name.value.trim();
+  const phone = form.elements.phone.value.trim();
+  const city = form.elements.city.value.trim();
+
+  const msg = `Новая заявка Avon:
+ФИО: ${fio}
+Телефон: ${phone}
+Город: ${city}`;
+
+  const whatsappNumber = "770XXXXXXXX";
+
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+
+  document.getElementById('form-message').textContent =
+    'Открываем WhatsApp. Нажмите «Отправить» в чате.';
+
+  window.open(url, '_blank');
+});
 });
 </script>
 </body>
